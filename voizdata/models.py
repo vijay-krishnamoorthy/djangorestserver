@@ -15,10 +15,10 @@ PLAN = (
     ('postpaid-plan-type','POSTPAID'),
     ('dongle-plan-type','DONGLE')
 )
-class Profile(models.Model):
-    user = models.name = models.ForeignKey('LoginData', related_name='profile', on_delete=models.CASCADE)
+class ProfileData(models.Model):
+    user = models.ForeignKey('LoginData', related_name='profile', on_delete=models.CASCADE)
     active_plan = models.ForeignKey("Plan", related_name='plans', on_delete=models.CASCADE)
-    user_type= models.CharField(type(active_plan),max_length=100)
+    user_type= models.CharField(choices= PLAN,max_length=100)
     data_remaining= models.IntegerField(default=0)
     calls_remaining=models.IntegerField(default=0)
     balance = models.IntegerField(default=5)
@@ -26,7 +26,7 @@ class Profile(models.Model):
     last_login = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
 class Plan(models.Model):
     plan_type=models.CharField(choices=PLAN,max_length=100)

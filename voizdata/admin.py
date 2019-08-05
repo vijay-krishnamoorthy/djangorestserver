@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Plan, LoginData, Profile
+from .models import Plan, LoginData, ProfileData
 # Register your models here.
 admin.site.register(Plan)
 admin.site.register(LoginData)
-admin.site.register(Profile)
+admin.site.register(ProfileData)

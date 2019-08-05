@@ -1,4 +1,4 @@
-from .models import Plan,Profile,LoginData
+from .models import Plan,ProfileData,LoginData
 from rest_framework import serializers
 
 
@@ -9,5 +9,5 @@ class PlanSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Profile
+        model = ProfileData
         fields = '__all__'

@@ -7,7 +7,7 @@ from rest_framework.generics import (
     UpdateAPIView,
     CreateAPIView
     )
-from .models import Plan, LoginData, Profile
+from .models import Plan, LoginData, ProfileData
 from .serializer import PlanSerializer
 # Create your views here.
 def index(request):
