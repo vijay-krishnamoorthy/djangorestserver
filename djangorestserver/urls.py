@@ -17,10 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from voizdata import urls
 from blogpost import urls
+from rest_framework import routers
+from voizdata.views import PlanList
+from voizdata.viewset import PlanViewSet
+
+router = routers.DefaultRouter()
+router.register('voizfonica', PlanViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include(router.urls)),
     path('voizfonica/', include('voizdata.urls')),
     path('blog/', include('voizdata.urls')),
 ]
