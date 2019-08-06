@@ -9,7 +9,7 @@ class PlanSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Profile
+        model = ProfileData
         fields = '__all__'
 
 class LoginSerializer(serializers.ModelSerializer):
