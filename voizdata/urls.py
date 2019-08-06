@@ -7,5 +7,5 @@ urlpatterns = [
     path('plans/<int:pk>/', views.PlanDetailsView.as_view(), name='detail'),
     path('plans/<int:pk>/delete/', views.PlanDestroyView.as_view(), name='delete'),
     path('plans/<int:pk>/update/', views.PlanUpdateView.as_view(),name='update'),
-    path('plans/create/', views.PlanCreateView.as_view(),name='create')
+    path('plans/create/', views.PlanCreateView,name='create')
 ]

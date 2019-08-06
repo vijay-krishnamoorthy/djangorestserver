@@ -37,3 +37,10 @@ class PlanCreateView(CreateAPIView):
     queryset=Plan.objects.all()
     serializer_class=PlanSerializer
     template_name='plan_create_view.html'
+
+# def PlanCreateView(request):
+#     if request.method=='POST':
+#         form = request.get('POST')
+#         if form.is_valid():
+#             form.save()
+        
