@@ -19,16 +19,23 @@ from voizdata import urls
 from blogpost import urls
 from rest_framework import routers
 from voizdata.views import PlanList
-from voizdata.viewset import PlanViewSet
+from voizdata.viewset import PlanViewSet,LoginViewSet
 
 voizdatarouter = routers.DefaultRouter()
 voizdatarouter.register('voizfonica/plans', PlanViewSet)
 blogrouter = routers.DefaultRouter()
 blogrouter.register('blog',PlanViewSet)
+user = routers.DefaultRouter()
+user.register('users',LoginViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(voizdatarouter.urls)),
+<<<<<<< HEAD
     path('api/voiz/', include('voizdata.urls')),
+=======
+    path('api/', include(user.urls)),
+    path('api/voizfonica/', include('voizdata.urls')),
+>>>>>>> 2c1e125f21b50d6edb8625251751a07589df8535
     path('api/blog/', include('voizdata.urls')),
 ]

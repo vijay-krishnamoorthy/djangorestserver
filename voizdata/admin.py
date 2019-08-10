@@ -5,13 +5,13 @@ from .models import (
     ProfileData,
     Recharge,
     NewConnection
-) 
+)
 # Register your models here.
 admin.site.register(Plan)
 admin.site.register(LoginData)
 admin.site.register(ProfileData)
 admin.site.register(NewConnection)
 admin.site.register(Recharge)
-#admin.site.register(NewConnection)
-#admin.site.register(NewConnection)
-#admin.site.register(NewConnection)
+# admin.site.register(NewConnection)
+# admin.site.register(NewConnection)
+# admin.site.register(NewConnection)
