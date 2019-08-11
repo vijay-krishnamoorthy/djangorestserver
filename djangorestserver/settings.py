@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'voizdata',
     'corsheaders'
 ]
-CORS_ORIGIN_WHITELIST = ['http://localhost:4200','http://127.0.0.1:4200']
+CORS_ORIGIN_WHITELIST = ['http://localhost:4200','http://localhost:4200']
+CSRF_TRUSTED_ORIGINS = (
+    'http://localhost:4200',
+)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -88,7 +91,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

@@ -1,7 +1,7 @@
 from django.db import models
  
 # Create your models here.
-class LoginData(models.Model):
+class User(models.Model):
     username=models.CharField(max_length=150,blank=False, null=False)
     mobile=models.CharField(max_length=10,null=False)
     email=models.CharField(max_length=200,blank=False, null=False)
@@ -16,7 +16,8 @@ PLAN_TYPE = [
     ('dongle-plan-type','DONGLE'), ]
 
 class ProfileData(models.Model):
-    mobile=models.ForeignKey('LoginData',related_name='login',on_delete=models.CASCADE,null=False)
+    username=models.CharField(max_length=150,blank=False,null=False)
+    mobile=models.ForeignKey('User',related_name='login',on_delete=models.CASCADE,null=False)
     active_plan = models.ForeignKey("Plan", related_name='plan', on_delete=models.CASCADE)
     user_type = models.CharField(choices=PLAN_TYPE,max_length=100)
     dob = models.DateField('DOB', auto_now_add=False)
@@ -59,5 +60,5 @@ class Recharge(models.Model):
     amount=models.IntegerField(default=0)
     time_recharged= models.DateTimeField(auto_now_add=False)
     
-    def __str__():
+    def __str__(self):
         return self.mobile

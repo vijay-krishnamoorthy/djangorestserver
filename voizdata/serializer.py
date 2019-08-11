@@ -1,4 +1,4 @@
-from .models import Plan,ProfileData,LoginData
+from .models import Plan,ProfileData,User
 from rest_framework import serializers
 
 
@@ -12,7 +12,8 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = ProfileData
         fields = '__all__'
 
-class LoginSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = LoginData
+        model = User
         fields = '__all__'
+        lookup_field='username'

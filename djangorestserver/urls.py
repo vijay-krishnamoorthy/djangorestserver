@@ -18,24 +18,29 @@ from django.urls import path, include
 from voizdata import urls
 from blogpost import urls
 from rest_framework import routers
-from voizdata.views import PlanList
-from voizdata.viewset import PlanViewSet,LoginViewSet
+# from voizdata.views import PlanList
+from voizdata.viewset import PlanViewSet,LoginViewSet,ProfileViewSet
 
-voizdatarouter = routers.DefaultRouter()
-voizdatarouter.register('voizfonica/plans', PlanViewSet)
-blogrouter = routers.DefaultRouter()
-blogrouter.register('blog',PlanViewSet)
+# voizdatarouter = routers.DefaultRouter()
+# voizdatarouter.register('user', LoginViewSet)
+# user = routers.DefaultRouter()
+# user.register('plans',PlanViewSet)
+# profile = routers.DefaultRouter()
+# profile.register('profile',ProfileViewSet)
+
 user = routers.DefaultRouter()
-user.register('users',LoginViewSet)
+user.register('user',LoginViewSet)
+profile = routers.DefaultRouter()
+profile.register('profile',ProfileViewSet)
+plans = routers.DefaultRouter()
+plans.register('plans',PlanViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(voizdatarouter.urls)),
-<<<<<<< HEAD
-    path('api/voiz/', include('voizdata.urls')),
-=======
+    # path('api/', include(voizdatarouter.urls)),
     path('api/', include(user.urls)),
-    path('api/voizfonica/', include('voizdata.urls')),
->>>>>>> 2c1e125f21b50d6edb8625251751a07589df8535
-    path('api/blog/', include('voizdata.urls')),
+    path('api/', include(profile.urls)),
+    path('api/', include(plans.urls)),
+    # path('api/voizfonica/', include('voizdata.urls')),
+    # path('api/blog/', include('voizdata.urls')),
 ]
